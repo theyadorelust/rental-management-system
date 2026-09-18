@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.">
+
+    <title>Rental Management System</title>
+
+    <style>
+        body {
+            margin: ;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+        }
+
+        header {
+            background-color: #1f4e78;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 110px;
+            margin: 30px auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow:  3px 10px rgba(, , , .1);
+        }
+
+        .product-card h2 {
+            color: #1f4e78;
+            margin-top: ;
+        }
+
+        .price {
+            color: #18864b;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .available {
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1f4e78;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #163a5b;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Rental Management System</h1>
+        <p>Choose a product to rent</p>
+    </header>
+
+    <main class="container">
+        <div class="product-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    <h2>{{ product.name }}</h2>
+
+                    <p>
+                        <strong>Category:</strong>
+                        {{ product.category }}
+                    </p>
+
+                    <p class="price">
+                        ₹{{ product.price_per_day }} per day
+                    </p>
+
+                    <p class="available">
+                        Available quantity: {{ product.quantity }}
+                    </p>
+
+                    <button type="button">Rent Now</button>
+                </div>
+            {% endfor %}
